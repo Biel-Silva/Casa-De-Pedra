@@ -38,6 +38,10 @@ header h1{
     header h1{
         font-size: 40px;
     }
+
+    header nav a{
+        font-size: 12.2px;
+    }
 }
 
 header > nav{
