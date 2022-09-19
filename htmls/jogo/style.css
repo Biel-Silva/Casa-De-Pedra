@@ -1,0 +1,13 @@
+body{
+	background-color: #211e1e;
+}
+.canvas {
+	border: 1px solid #4a4a4a;
+}
+
+.contblock {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
