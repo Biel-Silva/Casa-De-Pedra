@@ -71,6 +71,22 @@ header > nav > a:hover {
     color:#000;
 }
 
+main article{
+    margin:auto;
+    margin-top:1em;
+    font-family:var(--font-escrever);
+    width:500px;
+    font-size:18px;
+    background-color: #79c579;
+    padding:30px;
+    border-radius:10px;
+    color:#000;
+}
+
+main article p{
+    margin-bottom:10px;
+}
+
 
 
 /*Créditos*/
