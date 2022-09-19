@@ -56,8 +56,12 @@ header h1{
         font-size: 20px;
     }
 
-    article {
+    header{
         width:90%;
+    }
+
+    article{
+        width:80%;
     }
 }
 
@@ -86,12 +90,14 @@ header > nav > a:hover {
     color:#000;
 }
 
+
 main article{
-    min-width: 100px;
+    min-width: 60%;
     margin:auto;
     margin-top:1em;
+    margin-bottom:1em;
     font-family:var(--font-escrever);
-    width:500px;
+    width:70%;
     font-size:18px;
     background-color: #79c579;
     padding:30px;
@@ -105,13 +111,11 @@ main article p{
 }
 
 
-
 /*Créditos*/
 #cred article{
     margin:auto;
     margin-top:1em;
     font-family:var(--font-escrever);
-    width:500px;
     font-size:18px;
     background-color: #79c579;
     padding:30px;
@@ -121,7 +125,12 @@ main article p{
 /*Fim dos créditos*/
 
 /*Jogo*/
-@media (max-width:584px){
+#aviso{
+    display:none;
+    margin:auto;
+}
+
+@media (max-width:828px){
     .canvas{
         display:none;
     }
@@ -130,6 +139,23 @@ main article p{
         display: none;
     }
 
+    #aviso{
+        display:inline-block;
+        margin-right:auto;
+        margin-left:auto;
+        margin-top:1em;
+    }
+
+    #cm-jogar{
+        width:100%;
+    }
+
+    #cm-jogar, #grat{
+        margin:auto;
+        display: none;
+    }
+
+    
 }
 
 .canvas {
@@ -145,6 +171,7 @@ main article p{
 
 #cm-jogar{
     margin:10px 0 0 276px;
+    width:200px;
 }
 /*Fim do jogo*/
 
