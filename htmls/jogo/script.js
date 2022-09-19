@@ -132,6 +132,7 @@ function dead(){
 	reset()
 }
 
+
 setInterval(repose, 500)
 setInterval(up, 15)
 setInterval(down, 15)
@@ -206,7 +207,7 @@ function wstatealr(){
 }
 
 function desenhar(url, x, y, move){
-	canvas.clearRect(0, 0, 4000, 600)
+	canvas.clearRect(0, 0, 2000, 600)
 
 	rest = move == true ? 2 : rest
 
@@ -214,11 +215,10 @@ function desenhar(url, x, y, move){
 	img.src = url
 	canvas.drawImage(img, pos.x, pos.y, 96, 96)
 
-	canvas.drawImage(background, -1, -100, 3000, 600)
+	canvas.drawImage(background, -1, -100, 2000, 600)
 
 	canvas.drawImage(gram, -1, 325, 1200, 600)
 	canvas.drawImage(gram, 1199, 325, 1200, 600)
-	canvas.drawImage(gram, 2398, 325, 1200, 600)
 
 	s.forEach(spawnitems)
 	virtuals.forEach(spawnitems)
@@ -239,7 +239,7 @@ function desenhar(url, x, y, move){
 }
 });
 
-	cam.x = Math.min(3000 - 800, Math.max(0,pos.x - 800/2));
+	cam.x = Math.min(1600 - 800, Math.max(0,pos.x - 800/2));
 	cam.y = Math.min(600 - 400, Math.max(0,pos.y - 600/2));
 	canvas.setTransform(1,0,0,1,0,0);
 	canvas.translate(-cam.x, -cam.y)
@@ -261,9 +261,9 @@ document.addEventListener("keydown", (key)=> {
 			wstatealr()
 			s.forEach(verify)
 			if (actuals != 0){
-				(pos.x > actuals.x-50) ? (pos.y-50 < actuals.y && pos.y+50 > actuals.y ? 0 : (pos.x += pos.x < 2925 ? 5:0)) : 0
+				(pos.x > actuals.x-50) ? (pos.y-50 < actuals.y && pos.y+50 > actuals.y ? 0 : (pos.x += pos.x < 1515 ? 5:0)) : 0
 			} else {
-				pos.x += pos.x < 2925 ? 5: 0
+				pos.x += pos.x < 1515 ? 5: 0
 			}
 			imguni = `neusso_walk_right_${wstate}.png`
 			break
