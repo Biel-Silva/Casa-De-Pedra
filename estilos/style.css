@@ -133,6 +133,9 @@ main article p{
 @media (max-width:828px){
     .canvas{
         display:none;
+        width:74%;
+        margin-bottom:3em;
+        margin-top:3em;
     }
 
     .contblock{
@@ -140,6 +143,7 @@ main article p{
     }
 
     #aviso{
+        width:90%;
         display:inline-block;
         margin-right:auto;
         margin-left:auto;
@@ -170,8 +174,9 @@ main article p{
 }
 
 #cm-jogar{
-    margin:10px 0 0 276px;
-    width:200px;
+    margin:auto;
+    width:74%;
+    border-radius:0px;
 }
 /*Fim do jogo*/
 
