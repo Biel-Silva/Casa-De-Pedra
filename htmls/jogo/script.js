@@ -14,6 +14,20 @@ var direction = "right"
 var wstate = 0;
 var cam = {x:0, y:0}
 
+var translose = new Image()
+var restarti = new Image()
+var menu = new Image()
+var message_win = new Image()
+var message_lose = new Image()
+var heart_full = new Image()
+var heart_dead = new Image()
+translose.src = "transparent_lose.png"
+restarti.src = "restart.png"
+menu.src = "menu.png"
+message_win.src = "message_win.png"
+message_lose.src = "message_lose.png"
+heart_full.src = "heart.png"
+heart_dead.src = "heart_dead.png"
 var actuals = 0;
 var tac = 0
 var diactu = 0;
@@ -83,10 +97,25 @@ stonchar.src = "stone_character_0.png"
 mob_right.src = "mob_skull_right.png"  
 mob_left.src = "mob_skull_left.png"  
 
-
+var hearts;
+var ih;
+var lock
 function reset(){
 
 colects = 0
+
+lock = 0
+
+pos.x = 0
+pos.y = 250
+
+hearts = [
+	(new item(cam.x+80, 30, "heart.png", 50, 50, 0, 0)),
+	(new item(cam.x+110, 30, "heart.png", 50, 50, 0, 0)),
+	(new item(cam.x+140, 30, "heart.png", 50, 50, 0, 0)),
+]
+
+ih = 0;
 
 mobdir = 0;
 
@@ -123,9 +152,17 @@ reset()
 var actualsgeral;
 
 function dead(){
-	pos.x = 0
-	pos.y = 0
-	reset()
+	if (ih < 3){
+		hearts[ih] = (new item(80+(30*ih), hearts[ih].position.y, "heart_dead.png", 50, 50, 0, 0))
+	}
+	ih = ih+1
+	pos.x -=40 
+	if(ih == 3) {
+	lock = 1;
+	canvas.drawImage(translose, 0, 0, 2000, 600)
+	canvas.drawImage(message_lose, cam.x+200, 0, 400, 400)
+	canvas.drawImage(restarti, cam.x+365, 275, 200, 200)
+	}
 }
 
 
@@ -144,9 +181,8 @@ setInterval(()=>{
 		z.namei = mobdir == 0 ? "mob_skull_right.png" : "mob_skull_left.png"
 		verify(z)
 		if (actuals != 0 && actuals.name == "mob_skull_right.png" || actuals.name == "mob_skull_left.png"){
-			 (pos.x > actuals.x-50) ? (pos.y-50 < actuals.y && pos.y+50 > actuals.y ? dead(): (0)) : dead()
-			 (pos.x > actuals.x-50) ? (pos.y-50 < actuals.y && pos.y+50 > actuals.y ? dead(): (0)) : dead()
-			 if (stopu == 1 && stopd == 1 && actuals.name == "mob_skull_right.png" && pos.y == actuals.y-59 || "mob_skull_left.png" && pos.y == actuals.y-60){
+			 (pos.x > actuals.x-50) ? (pos.y-50 < actuals.y && pos.y+50 > actuals.y ? dead(): (0)) : 0
+			 if (z != 0 && stopu == 1 && stopd == 1 && actuals.name == "mob_skull_right.png" && pos.y == actuals.y-59 || "mob_skull_left.png" && pos.y == actuals.y-60){
 			 	upstart()
 			 	posi = s.indexOf(actualsgeral)
 			 	if(s[posi].namei != "stone.png"){s[posi] = 0}
@@ -170,6 +206,12 @@ function spawnitems(z){
 			break
 		case "stone_character_0.png":
 			canvas.drawImage(stonchar, z.position.x, z.position.y, z.position.width, z.position.height)
+			break
+		case "heart_dead.png":
+			canvas.drawImage(heart_dead, z.position.x, z.position.y, z.position.width, z.position.height)
+			break
+		case "heart.png":
+			canvas.drawImage(heart_full, z.position.x, z.position.y, z.position.width, z.position.height)
 			break
 		}
 	}
@@ -219,14 +261,24 @@ function desenhar(url, x, y, move){
 	s.forEach(spawnitems)
 	virtuals.forEach(spawnitems)
 
+	hearts.forEach(spawnitems)
+	hearts.forEach((z, i)=>{
+		hearts[i].xi = cam.x+80+(30*i)
+	})
+
 	img2 = new Image()
 	img2.src = `house_${colects}.png`
 	canvas.drawImage(img2, cam.x, 0, 100, 100)
 
 	if (colects == 3){
-		alert("Missão cumprida!")
-		document.location.href = "../.."
-		reset();
+		lock = 1
+		canvas.drawImage(translose, 0, 0, 2000, 600)
+		canvas.drawImage(message_win, cam.x+200, 0, 400, 400)
+		canvas.drawImage(restarti, cam.x+365, 275, 200, 200)
+	} else if (ih >= 3){
+		canvas.drawImage(translose, 0, 0, 2000, 600)
+		canvas.drawImage(message_lose, cam.x+200, 0, 400, 400)
+		canvas.drawImage(restarti, cam.x+365, 275, 200, 200)
 	}
 
 	virtuals.forEach((z, i)=> {
@@ -251,41 +303,42 @@ function upstart(){
 }
 document.addEventListener("keydown", (key)=> {
 	key = key.key || window.event.key
-	switch (key.toLowerCase()){
-		case "d":
-		case "arrowright":
-			direction = "right"
-			wstatealr()
-			s.forEach(verify)
-			if (actuals != 0){
-				(pos.x > actuals.x-50) ? (pos.y-50 < actuals.y && pos.y+50 > actuals.y ? 0 : (pos.x += pos.x < 1515 ? 5:0)) : 0
-			} else {
-				pos.x += pos.x < 1515 ? 5: 0
-			}
-			imguni = `neusso_walk_right_${wstate}.png`
-			break
+	if(lock == 0){
+		switch (key.toLowerCase()){
+			case "d":
+				direction = "right"
+				wstatealr()
+				s.forEach(verify)
+				if (actuals != 0){
+					(pos.x > actuals.x-50) ? (pos.y-50 < actuals.y && pos.y+50 > actuals.y ? 0 : (pos.x += pos.x < 1515 ? 5:0)) : 0
+				} else {
+					pos.x += pos.x < 1515 ? 5: 0
+				}
+				imguni = `neusso_walk_right_${wstate}.png`
+				break
 
-		case "a":
-		case "arrowleft":
-			direction = "left"
-			s.forEach(verify)
-			wstatealr()
-			if (actuals != 0){
-				(pos.x > actuals.x-50) ? (pos.y-50 < actuals.y && pos.y+50 > actuals.y ? 0: (pos.x -= pos.x > -25 ? 5:0)) : 0
-			} else {
-				pos.x -= pos.x > -25 ? 5 : 0
-			}
-			imguni = `neusso_walk_left_${wstate}.png`
-			break
+			case "a":
+				direction = "left"
+				s.forEach(verify)
+				wstatealr()
+				if (actuals != 0){
+					(pos.x > actuals.x-50) ? (pos.y-50 < actuals.y && pos.y+50 > actuals.y ? 0: (pos.x -= pos.x > -25 ? 5:0)) : 0
+				} else {
+					pos.x -= pos.x > -25 ? 5 : 0
+				}
+				imguni = `neusso_walk_left_${wstate}.png`
+				break
 
-		case "w":
-		case "arrowup":
-			upstart()
-			break
-		case 'f':
-			alert(`p1pos:${pos.x}|${pos.y} ${actuals.x}|${actuals.y}`)
-			break
+			case "w":
+				upstart()
+				break
+		}} else if(lock == 1){
+		switch (key.toLowerCase()){
+			case 'r':
+				reset()
+				break
 		}
+	}
 })
 
 function repose(){
