@@ -110,6 +110,12 @@ main article p{
     margin-bottom:10px;
 }
 
+main article img{
+    width:30%;
+    margin:auto;
+    display: block;
+}
+
 
 /*Créditos*/
 #cred article{
