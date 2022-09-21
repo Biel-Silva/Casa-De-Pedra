@@ -139,9 +139,9 @@ posmobi = [
 ]
 
 virtuals = [
-	(new item(845, 250, "stone_character_0.png", 70, 70, 0, 0)),
-	(new item(1040, 140, "stone_character_0.png", 70, 70, 0, 0)),
-	(new item(1425, 125, "stone_character_0.png", 70, 70, 0, 0)),
+	(new item(845, 250, "stone_character_0.png", 40, 40, 0, 0)),
+	(new item(1040, 140, "stone_character_0.png", 40, 40, 0, 0)),
+	(new item(1425, 125, "stone_character_0.png", 40, 40, 0, 0)),
 ]
 
 rest = 0;
