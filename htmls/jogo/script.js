@@ -16,14 +16,12 @@ var cam = {x:0, y:0}
 
 var translose = new Image()
 var restarti = new Image()
-var menu = new Image()
 var message_win = new Image()
 var message_lose = new Image()
 var heart_full = new Image()
 var heart_dead = new Image()
 translose.src = "transparent_lose.png"
 restarti.src = "restart.png"
-menu.src = "menu.png"
 message_win.src = "message_win.png"
 message_lose.src = "message_lose.png"
 heart_full.src = "heart.png"
