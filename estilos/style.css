@@ -26,8 +26,18 @@ a{
     text-decoration:none;
 }
 
+p{
+    margin-bottom:18px;
+}
+
 .title{
     font-family: Arial, Helvetica, sans-serif;
+    text-align:center;
+}
+
+.obra{
+    background-color:#4d3112;
+    color:#fff;
 }
 
 header{
@@ -111,10 +121,6 @@ main article{
     border-radius:10px;
     color:#000;
     box-sizing: border-box;
-}
-
-main article p{
-    margin-bottom:10px;
 }
 
 /*Créditos*/
