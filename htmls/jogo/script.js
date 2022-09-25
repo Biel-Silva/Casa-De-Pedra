@@ -137,9 +137,9 @@ posmobi = [
 ]
 
 virtuals = [
-	(new item(845, 250, "stone_character_0.png", 40, 40, 0, 0)),
-	(new item(1040, 140, "stone_character_0.png", 40, 40, 0, 0)),
-	(new item(1425, 125, "stone_character_0.png", 40, 40, 0, 0)),
+	(new item(845, 250, "stone_character_0.png", 60, 60, 0, 0)),
+	(new item(1040, 140, "stone_character_0.png", 60, 60, 0, 0)),
+	(new item(1425, 125, "stone_character_0.png", 60, 60, 0, 0)),
 ]
 
 rest = 0;
@@ -158,8 +158,8 @@ function dead(){
 	if(ih == 3) {
 	lock = 1;
 	canvas.drawImage(translose, 0, 0, 2000, 600)
-	canvas.drawImage(message_lose, cam.x+200, 0, 400, 400)
-	canvas.drawImage(restarti, cam.x+365, 275, 200, 200)
+	canvas.drawImage(message_lose, cam.x+100, 0, 400, 400)
+	canvas.drawImage(restarti, cam.x+363, 275, 200, 200)
 	}
 }
 
