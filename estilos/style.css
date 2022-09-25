@@ -33,11 +33,20 @@ p{
 .title{
     font-family: Arial, Helvetica, sans-serif;
     text-align:center;
+    margin-bottom:16px;
 }
 
 .obra{
-    background-color:#4d3112;
+    background-color:#886646;
     color:#fff;
+}
+
+.autor{
+    background-color: #79c579;
+}
+
+.arte{
+    background-color:#b88d5c;
 }
 
 header{
@@ -116,12 +125,14 @@ main article{
     font-family:var(--font-escrever);
     width:40%;
     font-size:18px;
-    background-color: #79c579;
     padding:30px;
     border-radius:10px;
     color:#000;
     box-sizing: border-box;
 }
+
+
+
 
 /*Créditos*/
 #cred article{
@@ -135,6 +146,10 @@ main article{
     color:#000;
 }
 /*Fim dos créditos*/
+
+
+
+
 
 /*Jogo*/
 #jg article{
