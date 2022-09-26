@@ -211,3 +211,10 @@ main article{
 }
 /*Fim do jogo*/
 
+/*Mural de fotos*/
+ul li{
+    list-style-type: none;
+    display: inline-block;
+    padding:0;
+    margin:0;
+}
