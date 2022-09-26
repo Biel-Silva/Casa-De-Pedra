@@ -37,16 +37,28 @@ p{
 }
 
 .obra{
+    background-color: #79c579;
+}
+
+.autor{
     background-color:#886646;
     color:#fff;
 }
 
-.autor{
-    background-color: #79c579;
-}
-
 .arte{
     background-color:#b88d5c;
+}
+
+.mural{
+    margin:auto;
+    background-color:#886646;
+}
+
+.big{
+    float:right;
+    margin-bottom:23px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 header{
@@ -141,10 +153,8 @@ main article{
     margin-top:1em;
     font-family:var(--font-escrever);
     font-size:18px;
-    background-color: #79c579;
     padding:30px;
     border-radius:10px;
-    color:#000;
 }
 /*Fim dos créditos*/
 
@@ -212,9 +222,23 @@ main article{
 /*Fim do jogo*/
 
 /*Mural de fotos*/
+ul{
+    margin:auto;
+    display:inline;
+}
+
 ul li{
     list-style-type: none;
     display: inline-block;
     padding:0;
     margin:0;
+    padding:10px;
+    padding-top:15px;
+    border-radius:10px;
+    background-color: #b88d5c;
+}
+
+ul li img{
+    display:block;
+    width:100%;
 }
