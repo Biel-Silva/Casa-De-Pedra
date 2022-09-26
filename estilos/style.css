@@ -84,7 +84,7 @@ header h1{
     }
 
     p{
-        font-size: 13.2px;
+        font-size: 11.2px;
         color:#000;
     }
 
@@ -203,7 +203,9 @@ main article{
         display: none;
     }
 
-    
+    #ti-jg{
+        display:none;
+    }
 }
 
 .canvas {
