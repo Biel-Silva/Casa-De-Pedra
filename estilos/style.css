@@ -92,10 +92,6 @@ header h1{
         font-size: 20px;
     }
 
-    header{
-        width:90%;
-    }
-
     article{
         width:80%;
     }
@@ -205,6 +201,10 @@ main article{
     }
 
     #ti-jg{
+        display:none;
+    }
+
+    #ref{
         display:none;
     }
 }
